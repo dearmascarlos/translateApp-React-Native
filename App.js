@@ -1,13 +1,13 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * 
+ *
  * TRABAJANDO EN MASTER
  *
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import tw from 'twrnc';
 import {
   Alert,
@@ -19,8 +19,12 @@ import {
 
 import {useDeviceContext} from 'twrnc';
 
-function App() {
+import LanguageSelector from './components/LanguageSelector';
+
+const App = () => {
   useDeviceContext(tw); // para usar nuestro 'dark mode'
+
+  const [language, setLanguage] = useState('es')
 
   const profileToast = () => {
     Alert.alert('Usuario', 'Carlos de Armas', [
@@ -31,6 +35,7 @@ function App() {
 
   return (
     <SafeAreaView style={tw`flex flex-1`}>
+      {/* cabecera de la app */}
       <View style={tw`flex flex-row justify-between px-8 py-4`}>
         <Text style={tw`flex text-2xl font-bold`}>Translate App</Text>
         <Pressable
@@ -39,6 +44,7 @@ function App() {
           <Text style={tw`text-slate-800 font-bold`}>CA</Text>
         </Pressable>
       </View>
+      <LanguageSelector language={language}/>
     </SafeAreaView>
   );
 }
