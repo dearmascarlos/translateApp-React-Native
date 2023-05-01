@@ -36,7 +36,7 @@ const App = () => {
   return (
     <SafeAreaView style={tw`flex flex-1`}>
       {/* cabecera de la app */}
-      <View style={tw`flex flex-row justify-between px-8 py-4`}>
+      <View style={tw`flex flex-row justify-between px-6 py-4`}>
         <Text style={tw`flex text-2xl font-bold`}>Translate App</Text>
         <Pressable
           onPress={profileToast}
@@ -44,7 +44,7 @@ const App = () => {
           <Text style={tw`text-slate-800 font-bold`}>CA</Text>
         </Pressable>
       </View>
-      <LanguageSelector language={language}/>
+      <LanguageSelector language={language} setLanguage={setLanguage}/>
     </SafeAreaView>
   );
 }
